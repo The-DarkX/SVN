@@ -1,0 +1,111 @@
+<link rel="stylesheet" href="/stylesheets/navbar.css">
+
+<nav class="navbar sticky-top fixed-top navbar-expand-lg py-2" id="main-nav">
+    <div class="container-fluid px-5 d-flex">
+        <a class="navbar-brand light-text fs-4" href="/">SVN</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse fs-6" id="navbarNavAltMarkup">
+            <div class="navbar-nav col-3 justify-content-start">
+                <a class="nav-link light-text slide-underline" href="/">Home</a>
+                <a class="nav-link light-text slide-underline" href="/#about">About</a>
+                <a class="nav-link light-text slide-underline" href="/locations">Locations</a>
+            </div>
+
+            <%if(currentUser && currentUser.accountType === "Organization"){%>
+            <div class="navbar-nav col-6 justify-content-center fs-6">
+                <a class="nav-link light-text slide-underline" href="/locations/new">Create Location</a>
+                <a class="nav-link light-text slide-underline" href="/under-construction">Applications</a>
+            </div>
+            <%}%>
+
+            <div class="navbar-nav ms-auto col-3 justify-content-end fs-6">
+            <% if(!currentUser) {%>
+            <a class="nav-link light-text slide-underline" href="/login">Login</a>
+            <a class="nav-link light-text slide-underline" href="/register">Sign Up</a>
+
+            <% }else{ %>
+
+            <!-- <a class="nav-link light-text slide-underline" href="/logout">Logout</a> -->
+
+            <div class="nav-menu">
+                <img class="img-fluid user-pic nav-menu" src="<%= currentUser.picture %>" onclick="toggleMenu()">
+
+                <div class="sub-menu-wrap nav-menu" id="subMenu">
+                    <div class="sub-menu nav-menu">
+                        <div class="user-info nav-menu">
+                            <img class="img-fluid" src="<%= currentUser.picture %>" alt="">
+                            <h4><%= currentUser.username %></h4>
+                        </div>
+                        <hr>
+                        <a href="<%=`/users/${currentUser._id}`%>" class="sub-menu-link">
+                            <img src="/media/edit.png" alt="">
+                            <p>View Profile</p>
+                            <span>></span>
+                        </a>
+                        <hr>
+                        <!-- <a href="#" class="sub-menu-link">
+                            <img src="/media/profile.png" alt="">
+                            <p>Edit Profile</p>
+                            <span>></span>
+                        </a> -->
+
+                        <% if(currentUser.accountType === "Organization") {%>
+                        <a href="/under-construction" class="sub-menu-link">
+                            <img src="/media/applications.png" alt="">
+                            <p>Application</p>
+                            <span>></span>
+                        </a>
+                        <% } %>
+                        <a href="/under-construction" class="sub-menu-link">
+                            <img src="/media/help.png" alt="">
+                            <p>Help</p>
+                            <span>></span>
+                        </a>
+                        <a href="/logout" class="sub-menu-link">
+                            <img src="/media/logout.png" alt="">
+                            <p>Log Out</p>
+                            <span>></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+        </div>
+    </div>
+    <!-- Avatar -->
+    </div>
+</nav>
+
+
+<script>
+    let subMenu = document.getElementById('subMenu')
+
+    function toggleMenu() {
+        subMenu.classList.toggle('open-menu')
+    }
+
+    // document.addEventListener('click', function (event) {
+    //     if (!event.target.classList.contains('nav-menu')) {
+    //         subMenu.classList.remove('open-menu')
+    //     }
+    // });
+
+</script>
+
+<script>
+    // When the user scrolls down 20px from the top of the document, slide down the navbar
+    window.onscroll = function () { scrollFunction() }
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("navbar").style.top = "0"
+        } else {
+            document.getElementById("navbar").style.top = "-50px"
+        }
+    }
+</script>

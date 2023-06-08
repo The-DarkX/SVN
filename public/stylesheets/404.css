@@ -1,0 +1,14 @@
+.hover-rotate {
+    overflow: visible;
+    width: 100%;
+}
+
+.hover-rotate {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+.hover-rotate:hover {
+    transform: scale(1.1) rotate(5deg);
+}

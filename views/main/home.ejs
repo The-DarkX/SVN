@@ -1,0 +1,126 @@
+<% currentPage = 'Student Volunteer Network' %>
+
+<% layout('layouts/boilerplate')%>
+
+<link rel="stylesheet" href="/stylesheets/home.css">
+
+<div data-bs-spy="scroll" data-bs-target="#main-nav" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true"
+    class="scrollspy-example" tabindex="0">
+
+    <div class="text-center banner-full container mb-3 p-5">
+        <span class="overlay"></span>
+
+        <div class="video-container">
+            <img src="/media/bannerPlaceholder.png" id="banner-img">
+            <video autoplay muted loop plays-inline id="banner-vid">
+                <source src="/media/Banner-Video(Volunteering_mini_movie).mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="mb-5">
+            <span class="br-md"></span>
+            <h1 class="light-text">Student Volunteer Network</h1>
+            <h2 class="light-text">Volunteering Made Easy.</h2>
+        </div>
+        <div class="pt-3">
+            <a href="/register">
+                <button class="btn btn-primary banner-btn" style="color: white;">Sign Me Up!</button>
+            </a>
+        </div>
+
+        <a href="https://youtu.be/qLGNj-xrgvY" class="light-text"
+            style="position: absolute; top: 95vh; right: 5vw; font-style: italic; text-decoration: none; border-bottom:0.1rem solid #FC814A">
+            <small>Check out the Author &#8702</small></a>
+    </div>
+
+    <div class="container-fluid dark-bg container-pad mt-5" id="about">
+        <div class="row d-flex justify-content-between py-5">
+            <div class="col-md-5">
+                <h2 class="light-text">About</h2>
+                <span class="br-line"></span>
+                <p class="light-text">SVN is a volunteering management system that simplifies the process of connecting
+                    volunteers with
+                    organizations in need. Whether you're an individual looking to contribute your time and skills, or
+                    an
+                    organization seeking volunteers for your cause, SVN has you covered.</p>
+            </div>
+            <div class="col-md-7 mb-0"
+                style="display: flex; justify-content: center; position: relative; object-fit: cover;">
+                <lottie-player src="/media/teamWork.json" background="transparent" speed="1"
+                    style="width: 50rem; height: 30rem;" loop autoplay></lottie-player>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="container-fluid light-bg container-pad">
+        <div class="row d-flex justify-content-between align-items-center">
+            <div class="col-md-7 mb-0"
+                style="display: flex; justify-content: center; position: relative; object-fit: cover;">
+                <lottie-player src="/media/automationLottie.json" background="transparent" speed="1"
+                    style="width: 50rem; height: 30rem;" loop autoplay></lottie-player>
+            </div>
+            <div class="col-md-5">
+                <span class="br-md"></span>
+                <h2 class="dark-text">Volunteering Automated</h2>
+                <span class="br-line"></span>
+                <p class="dark-text mb-5">
+                    Effortlessly manage your volunteer program with SVN's intuitive platform. Easily create volunteer
+                    opportunities, track volunteer hours, and communicate with your volunteers all in one place. Say
+                    goodbye
+                    to filling out papers and scrambling for signatures, SVN automates everything for you, so you can
+                    focus
+                    on what's important.
+                </p>
+                <a href="/register">
+                    <button class="btn btn-primary dark-text">Start Now!</button>
+                </a>
+            </div>
+        </div>
+        <span class="br-lg"></span>
+
+    </div>
+
+    <div class="container-fluid dark-bg container-pad">
+        <div class="row d-flex justify-content-between align-items-center">
+            <div class="col-md-5">
+                <h2 class="light-text">Location Map</h2>
+                <span class="br-line"></span>
+                <p class="light-text mb-5">Our intuitive map is designed to make your search for volunteer locations a
+                    breeze. Simply enter your location or use the map's interactive features to explore nearby options.
+                    With our user-friendly interface, you can quickly identify volunteer organizations, events, and
+                    projects that align with your interests and availability.</p>
+
+                <a href="/locations">
+                    <button class="btn btn-primary light-text">View Locations</button>
+                </a>
+            </div>
+            <div class="col-md-6 mb-0"
+                style="display: flex; justify-content: center; position: relative; object-fit: cover;">
+                <lottie-player src="/media/homeMap.json" background="transparent" speed="1"
+                    style="width: 50rem; height: 30rem;" loop autoplay></lottie-player>
+            </div>
+
+            <span class="br-lg"></span>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    const video = document.getElementById('banner-vid')
+    video.playbackRate = 2 // Speed up the video to 2x
+
+    const start = 0 // Start the video at 5 seconds
+    const end = 129 // End the video at 15 seconds
+    video.currentTime = start
+
+    video.addEventListener('timeupdate', function () {
+        if (video.currentTime >= end) {
+            video.pause()
+            video.currentTime = start
+            video.play()
+        }
+    });
+</script>

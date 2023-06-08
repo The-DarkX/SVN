@@ -1,0 +1,14 @@
+.profile-container {
+    background-color: white;
+    outline-style: solid;
+    outline-width: 0.1rem;
+    outline-color: #392D2D;
+}
+
+.border-col {
+    outline-style: solid;
+    outline-width: 0.1rem;
+    outline-color: #392D2D;
+}
+
+/* #FC814A #F0EEED #766262 #707070 #392D2D */

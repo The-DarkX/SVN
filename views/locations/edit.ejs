@@ -1,0 +1,45 @@
+<% currentPage = 'Edit Location | SVN' %>
+
+<% layout('layouts/boilerplate')%>
+
+<span class="br-md"></span>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 container-box">
+
+            <h2 class="text-center mb-5">Edit Location</h2>
+
+            <form action="/locations/<%=location._id%>?_method=PUT" method="POST" novalidate class="validated-form">
+                <div class="mb-3">
+                    <label class="form-label" for="title"">Title</label>
+                <input class=" form-control" type="text" id="title" name="location[title]"
+                        value="<%= location.title %>" required>
+                        <div class="valid-feedback">
+                            Looks Good!
+                        </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="location">Address</label>
+                    <input class="form-control" type="text" id="location" name="location[address]"
+                        value="<%= location.address %>" required>
+                    <div class="valid-feedback">
+                        Looks Good!
+                    </div>
+                </div>
+                <div class="mb-5">
+                    <label class="form-label" for="description">Description</label>
+                    <textarea class="form-control" type="text" id="description" name="location[description]"
+                        required><%= location.description %></textarea>
+                    <div class="valid-feedback">
+                        Looks Good!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-info">Update Location</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>

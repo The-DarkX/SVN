@@ -1,0 +1,141 @@
+<% currentPage = 'Sign Up | SVN' %>
+
+<% layout('layouts/boilerplate') %>
+
+<span class="br-md"></span>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 container-box">
+            <h2 class="dark-text text-center">Sign Up</h2>
+            <span class="br-sm"></span>
+
+            <div class="registration-form">
+                <ul class="nav nav-pills d-flex justify-content-center gap-3 mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="student-tab" data-bs-toggle="pill"
+                            data-bs-target="#student-form" type="button" role="tab" aria-controls="student-form"
+                            aria-selected="true">Student Account</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="organization-tab" data-bs-toggle="pill"
+                            data-bs-target="#organization-form" type="button" role="tab"
+                            aria-controls="organization-form" aria-selected="false">Organization
+                            Account</button>
+                    </li>
+                </ul>
+
+                <span class="br-sm"></span>
+
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="student-form" role="tabpanel"
+                        aria-labelledby="student-tab">
+
+                        <!-- Student Form Starts here -->
+
+                        <form action="/register?t=stu" method="post" class="validated-form" novalidate>
+                            <div class="mb-3">
+                                <label class="form-label dark-text" for="username">Full Name</label>
+                                <input class="form-control" type="text" id="username" name="username" required>
+                                <div class="valid-feedback">
+                                    Looks Good!
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label dark-text" for="email">Email</label>
+                                <input class="form-control" type="email" id="email" name="email" required>
+                                <div class="valid-feedback">
+                                    Looks Good!
+                                </div>
+                            </div>
+                            <div>
+                                <label class="form-label dark-text" for="password">Password</label>
+                                <input class="form-control" type="password" id="password" name="password" required>
+                                <div class="valid-feedback">
+                                    Looks Good!
+                                </div>
+                            </div>
+
+                            <span class="br-sm"></span>
+
+                            <button class="btn btn-primary">Register</button>
+                        </form>
+
+
+                    </div>
+                    <div class="tab-pane fade" id="organization-form" role="tabpanel"
+                        aria-labelledby="organization-tab">
+
+                        <!-- Organization Form Starts here -->
+
+                        <form action="/register?t=org" method="post" class="validated-form" novalidate>
+                            <div class="mb-3">
+                                <label class="form-label dark-text" for="username">Organization Name</label>
+                                <input class="form-control" type="text" id="username" name="username" required>
+                                <div class="valid-feedback">
+                                    Looks Good!
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label dark-text" for="email">Email</label>
+                                <input class="form-control" type="email" id="email" name="email" required>
+                                <div class="valid-feedback">
+                                    Looks Good!
+                                </div>
+                            </div>
+                            <div>
+                                <label class="form-label dark-text" for="password">Password</label>
+                                <input class="form-control" type="password" id="password" name="password" required>
+                                <div class="valid-feedback">
+                                    Looks Good!
+                                </div>
+                            </div>
+
+                            <span class="br-sm"></span>
+
+                            <button class="btn btn-primary">Register</button>
+
+
+                        </form>
+
+                        <span class="br-sm"></span>
+                        <p class="dark-text caption">Note: Organization accouts may take some time to approve. </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <span class="br-sm"></span>
+            <lottie-player src="/media/register.json" background="transparent" speed="0.8"
+                style="width: 55rem; height: 30rem;" loop autoplay></lottie-player>
+        </div>
+    </div>
+</div>
+
+<span class="br-sm"></span>
+
+
+
+
+<!-- change username to first name and last name or organization name if you sign up as an organization -->
+
+<script>
+    const studentTab = document.getElementById('student-tab')
+    const organizationTab = document.getElementById('organization-tab')
+    const studentForm = document.getElementById('student-form')
+    const organizationForm = document.getElementById('organization-form')
+
+    studentTab.addEventListener('click', () => {
+        organizationTab.classList.remove('active')
+        studentTab.classList.add('active')
+        organizationForm.classList.remove('show', 'active')
+        studentForm.classList.add('show', 'active')
+    })
+
+    organizationTab.addEventListener('click', () => {
+        studentTab.classList.remove('active')
+        organizationTab.classList.add('active')
+        studentForm.classList.remove('show', 'active')
+        organizationForm.classList.add('show', 'active')
+    });
+</script>

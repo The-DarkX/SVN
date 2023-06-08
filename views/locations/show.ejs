@@ -1,0 +1,216 @@
+<% currentPage = `${location.title} | SVN` %>
+
+<% layout('layouts/boilerplate')%>
+<link rel="stylesheet" href="/stylesheets/stars.css">
+<link rel="stylesheet" href="/stylesheets/locations.css">
+
+<span class="br-sm"></span>
+<div class="container">
+    <div class="row d-flex justify-content-between">
+        <div class="col-6">
+            <div class="card mb-3 p-3">
+                <div class="card-body">
+                    <div id="locationCarousel" class="carousel slide">
+                        <div class="carousel-inner">
+                            <% location.images.forEach((img,i) => { %>
+                            <div class="carousel-item <%= i === 0 ? 'active' : '' %>">
+                                <img src="<%= img.url %>" class="d-block w-100" alt="">
+                            </div>
+                            <% }) %>
+                        </div>
+
+                        <% if (location.images.length > 1) { %>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#locationCarousel"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#locationCarousel"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                        <%}%>
+                    </div>
+
+                    <span class="br-sm"></span>
+
+                <h5 class="card-title dark-text"><%= location.title %></h5>
+                        <p class="card-text dark-text"><%= location.description %></p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item sub-text"><%= location.address %></li>
+                        <li class="list-group-item dark-text">Submitted by <%= location.author.username %></li>
+
+                    </ul>
+
+                    <% if( currentUser && location.author.equals(currentUser._id)) {%>
+                    <div class="card-body">
+                        <a class="card-link btn btn-info" href="/locations/<%=location._id%>/edit">Edit</a>
+
+                        <form class="d-inline" action="/locations/<%=location._id%>?_method=DELETE" method="POST">
+                            <button class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                    <% } %>
+
+                    <!-- <div class="card-footer text-muted">
+                        <p class="date-countdown">2 days ago</p>
+                    </div> -->
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="card mb-3 p-3">
+                    <div class="card-body" style="overflow: hidden;">
+
+                        <!-- <div class=" col" id="map-container">
+                        <div id="map"></div>
+                    </div> -->
+                        <div id="map" style="width: 35rem; height: 20rem">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-3 p-3">
+                    <div class="card-body">
+
+                        <% if(currentUser && !location.author.equals(currentUser._id) && currentUser.accountType!=='Organization') {%>
+                        <h2>Leave a Review</h2>
+                        <form action="/locations/<%= location._id %>/reviews" method="post" class="mb-3 validated-form"
+                            novalidate>
+                            <div class="mb-3">
+                                <fieldset class="starability-basic">
+                                    <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]"
+                                        value="1" checked aria-label="No rating." />
+                                    <input type="radio" id="first-rate1" name="review[rating]" value="1" checked />
+                                    <label for="first-rate1" title="Terrible">1 star</label>
+                                    <input type="radio" id="first-rate2" name="review[rating]" value="2" />
+                                    <label for="first-rate2" title="Not good">2 stars</label>
+                                    <input type="radio" id="first-rate3" name="review[rating]" value="3" />
+                                    <label for="first-rate3" title="Average">3 stars</label>
+                                    <input type="radio" id="first-rate4" name="review[rating]" value="4" />
+                                    <label for="first-rate4" title="Very good">4 stars</label>
+                                    <input type="radio" id="first-rate5" name="review[rating]" value="5" />
+                                    <label for="first-rate5" title="Amazing">5 stars</label>
+                                </fieldset>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label dark-text" for="reviewbody">Review</label>
+                                <textarea class="form-control dark-text" name="review[body]" id="reviewbody"
+                                    oninput="this.style.height = '';this.style.height = this.scrollHeight + 'px'"
+                                    required></textarea>
+                                <div class="valid-feedback">
+                                    Looks Good!
+                                </div>
+                            </div>
+                            <button class="btn btn-primary">Submit</button>
+                        </form>
+                        <% } %>
+
+                        <% if(location.reviews.length === 0 && !(currentUser && currentUser.accountType==='Student')) {%>
+                        <div>
+                            <h2 class="dark-text">Sorry No Reviews Yet!!!</h2>
+                        </div>
+                        <% } else {%>
+                        <%for(let review of location.reviews){%>
+                        <div>
+                            <h5 class="card-title dark-text">Rating: <%= review.rating %></h5>
+                            <p class="starability-result dark-text" data-rating="<%= review.rating %>">
+                                Rated: <%= review.rating %> starts
+                            </p>
+
+                            <h6 class="card-subtitle mb-2 sub-text">By <%= review.author.username %></h6>
+                            <p class="card-text dark-text">Review: <%= review.body %></p>
+
+                            <% if( currentUser && review.author.equals(currentUser._id)) {%>
+                            <form action="/locations/<%= location._id %>/reviews/<%= review._id %>?_method=DELETE"
+                                method="post">
+                                <button class="btn btn-sm btn-danger">Delete</button>
+                            </form>
+                            <% } %>
+                        </div>
+                        <%}%>
+                    <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <span class="br-md"></span>
+    </div>
+</div>
+
+
+<script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoidGhlZGFya3giLCJhIjoiY2xndnU0bTltMnEzcDNycDM3ajV1aWhsMyJ9.ojoR99-t6eUNrUsgy-JVCA'
+    const map = new mapboxgl.Map({
+        container: 'map',
+        // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+        style: 'mapbox://styles/mapbox/dark-v11',
+        center: [-118.25429748818274, 34.23723145828951],
+        zoom: 8
+    })
+
+    // Create a default Marker and add it to the map.
+    const marker1 = new mapboxgl.Marker({ color: '#FC814A' })
+        .setLngLat([-118.25429748818274, 34.23723145828951])
+        .addTo(map)
+</script>
+
+<!-- <script>
+    window.mapToken = '<%-process.env.MAPBOX_TOKEN%>'
+    window.locationItm = <% - JSON.stringify(location) %>
+
+        // mapboxgl.accessToken = mapToken
+        // const map = new mapboxgl.Map({
+        //     container: 'map',
+        //     style: 'mapbox://styles/mapbox/light-v10', // stylesheet location
+        //     center: location.geometry.coordinates, // starting position [lng, lat]
+        //     zoom: 10 // starting zoom
+        // })
+
+
+        mapboxgl.accessToken = mapToken
+
+    const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v12',
+        center: location.geometry.coordinates,
+        zoom: 8
+    })
+
+    // var lng = locationItm.geometry.coordinates[1]
+    // var lat = locationItm.geometry.coordinates[0]
+
+    // const map = new mapboxgl.Map({
+    //     container: 'map',
+    //     // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+    //     style: 'mapbox://styles/mapbox/streets-v12',
+    //     center: [12.550343, 55.665957],
+    //     zoom: 8
+    // })
+
+    const lngLat = [location.geometry.coordinates[1], location.geometry.coordinates[0]]
+    const marker1 = new mapboxgl.Marker()
+        .setLngLat(lngLat)
+        .addTo(map)
+
+// Create a default Marker, colored black, rotated 45 degrees.
+// const marker2 = new mapboxgl.Marker({ color: 'black', rotation: 45 })
+//     .setLngLat([12.65147, 55.608166])
+//     .addTo(map)
+
+// map.addControl(new mapboxgl.NavigationControl())
+
+
+// new mapboxgl.Marker()
+//     .setLngLat(location.geometry.coordinates)
+//     .setPopup(
+//         new mapboxgl.Popup({ offset: 25 })
+//             .setHTML(
+//                 `<h3>${location.title}</h3><p>${location.address}</p>`
+//             )
+//     )
+//     .addTo(map)
+</script> -->
+
+<!-- <script src="/scripts/showPageMap.js"></script> -->

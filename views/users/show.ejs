@@ -1,0 +1,199 @@
+<% currentPage = `${currentUser.username} | SVN` %>
+
+<% layout('layouts/boilerplate')%>
+
+<link rel="stylesheet" href="/stylesheets/profile.css">
+
+<span class="br-sm"></span>
+
+<div class="container profile-container mb-5">
+    <div class="row mt-5" style="height: 50rem;">
+        <!-- Left Side Navigation Tabs -->
+        <div class="col-lg-3 border-col">
+
+            <div class="d-flex justify-content-center">
+                <img class="img-fluid profile-pic" src="<%= user.picture %>" alt="">
+            </div>
+            <h3 class="text-center sub-text"><%= user.username %></h3>
+
+            <span class="br-sm"></span>
+
+            <div class="mb-5">
+                <ul class="list-group">
+                    <li class="list-group">
+                        <button class="tab-btn active" id="profile-link">Profile</button>
+                    </li>
+                    <!-- <li class="list-group">
+                        <button class="tab-btn" id="photo-link">
+                            Change Picture
+
+                            <div class="form-file custom-file">
+                                <input type="file" class="form-file-input" id="image" name="image" hidden>
+                            </div>
+                        </button>
+                    </li> -->
+                    <li class="list-group">
+                        <button class="tab-btn" id="password-link">Change Password</button>
+                    </li>
+                    <li class="list-group">
+                        <form action="/users/<%= user._id %>?_method=DELETE" method="post">
+                            <button class="btn btn-danger text-start" style="border-radius: 0; width: 100%;"
+                                id="password-link">Delete
+                                Account</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Right Side Profile Information -->
+        <div class="col-lg-9 border border-col">
+            <div class="row text-center border-col py-3" ">
+                <h2 class=" dark-text">Profile</h2>
+                <h3 class="sub-text" style="line-height:0;">Add info about yourself.</h3>
+            </div>
+            <div class="row p-5">
+                <form action="/users/<%=user._id%>?_method=PUT" method="POST" novalidate class="validated-form">
+                    <!-- General Profile Page -->
+                    <div id="profile-tab">
+                        <div class="form-group row mb-3 align-items-center">
+                            <div class="col-sm-2">
+                                <h4 class="dark-text">Username</h4>
+                            </div>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control dark-text" id="username"
+                                    value="<%=user.username %>" name="user[username]" disabled>
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-3 align-items-center">
+                            <div class="col-sm-2">
+                                <h4 class="dark-text">Email</h4>
+                            </div>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control dark-text" id="email" name="user[email]"
+                                    value="<%=user.email %>">
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-3">
+                            <div class="col-sm-2 col-form-label">
+                                <h4 class="dark-text">Bio</h4>
+                            </div>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" id="bio" name="user[bio]" rows="5"
+                                    placeholder="Add a few words about yourself..."><%= user.bio %></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-5">
+                            <div class="col-sm-2 col-form-label">
+                                <h4 class="dark-text">Website</h4>
+                            </div>
+                            <div class="col-sm-10">
+                                <input type="url" class="form-control dark-text" id="website" name="user[website]"
+                                    value="<%=user.website %>" placeholder="Http(s)://">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Photo Page -->
+                    <div id="photo-tab" hidden>
+                        <div class="form-group row mb-3 align-items-center">
+                            <div class="col-sm-6">
+                                <h4 class="dark-text">Current image preview</h4>
+                            </div>
+                            <div class="col-sm-12 profile-pic-preview justify-content-center">
+                                <img class="img-fluid thumbnail" src="<%= currentUser.picture %>" alt="">
+                            </div>
+                        </div>
+
+                        <div class="mb-5">
+                            <div class="form-file custom-file">
+                                <input type="file" class="form-file-input" id="image" name="image" multiple>
+                                <label class="form-file-label" for="image">
+                                    <span class="form-file-text custom-file-label">Choose image(s)...</span>
+                                    <span class="form-file-button">Browse</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Change Password Page -->
+                    <div id="password-tab" hidden>
+                        <div class="form-group row mb-5 align-items-center">
+                            <div class="col-sm-3">
+                                <h4 class="dark-text">Old Password</h4>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="password" class="form-control dark-text" name="user[password_old]">
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-3 align-items-center">
+                            <div class="col-sm-3">
+                                <h4 class="dark-text">New Password</h4>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="password" class="form-control dark-text" name="user[password_new]">
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-5 align-items-center">
+                            <div class="col-sm-3">
+                                <h4 class="dark-text">Confirm Password</h4>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="password" class="form-control dark-text" name="user[password_new_conf]">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    const profileTab = document.getElementById('profile-tab')
+    const photoTab = document.getElementById('photo-tab')
+    const passwordTab = document.getElementById('password-tab')
+
+    const profileLink = document.getElementById('profile-link')
+    const photoLink = document.getElementById('photo-link')
+    const passwordLink = document.getElementById('password-link')
+
+    profileLink.addEventListener('click', () => {
+        profileLink.classList.add('active')
+        // photoLink.classList.remove('active')
+        passwordLink.classList.remove('active')
+
+        profileTab.hidden = false
+        passwordTab.hidden = true
+        // photoTab.hidden = true
+    })
+
+    // photoLink.addEventListener('click', () => {
+    //     profileLink.classList.remove('active')
+    //     photoLink.classList.add('active')
+    //     passwordLink.classList.remove('active')
+
+    //     profileTab.hidden = true
+    //     passwordTab.hidden = true
+    //     photoTab.hidden = false
+    // })
+
+    passwordLink.addEventListener('click', () => {
+        profileLink.classList.remove('active')
+        // photoLink.classList.remove('active')
+        passwordLink.classList.add('active')
+
+        profileTab.hidden = true
+        passwordTab.hidden = false
+        // photoTab.hidden = true
+    })
+
+</script>

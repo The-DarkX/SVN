@@ -1,0 +1,392 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Raleway:wght@800&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+}
+
+h1 {
+    font-weight: 900;
+    font-size: 4rem;
+}
+
+h2 {
+    font-weight: 800;
+    font-size: 3rem;
+
+}
+
+h3 {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+h4 {
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+p {
+    font-size: 1.1rem;
+}
+
+body {
+    background-color: #F0EEED;
+    overflow-x: hidden;
+}
+
+nav,
+footer {
+    background-color: #392D2D;
+}
+
+nav svg {
+    color: #F0EEED;
+}
+
+.form-control {
+    border-radius: 0;
+    border-color: #392D2D;
+}
+
+.form-control::before {
+    pointer-events: none;
+}
+
+.form-control:focus {
+    border-color: #40D169;
+    box-shadow: 0 0 0 0.2rem rgba(64, 209, 105, 0.25);
+}
+
+::selection {
+    color: white;
+    background: #FC814A;
+}
+
+
+a.slide-underline {
+    position: relative;
+    text-decoration: none;
+}
+
+a.slide-underline::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 0.15rem;
+    bottom: 0;
+    left: 0;
+    background-color: #FC814A;
+    transform: scaleX(0);
+    transform-origin: top left;
+    transition: transform 0.3s ease;
+}
+
+a.slide-underline:hover::before {
+    transform: scaleX(1);
+}
+
+a.light-text,
+a.light-text:hover,
+a.light-text:active {
+    color: #F0EEED !important;
+}
+
+.dark-text {
+    color: #392D2D;
+}
+
+a.dark-text,
+a.dark-text:hover,
+a.dark-text:active {
+    color: #392D2D !important;
+}
+
+.sub-text {
+    color: #766262;
+}
+
+.btn-primary {
+    color: #392D2D;
+    background-color: #ffffff00;
+    border-color: #FC814A;
+    border-radius: 0;
+    border-width: 0.1rem;
+    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.open>.dropdown-toggle.btn-primary {
+    color: #F0EEED;
+    background-color: #FC814A;
+    border-color: #FC814A;
+}
+
+.btn-primary:active:focus {
+    color: #F0EEED;
+    background-color: #ed6120;
+    border-color: #ed6120;
+}
+
+
+.btn-danger {
+    color: #392D2D;
+    background-color: #ffffff00;
+    border-color: #fc4a62;
+    border-radius: 0;
+    border-width: 0.1rem;
+    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+}
+
+.btn-danger:hover,
+.btn-danger:focus,
+.open>.dropdown-toggle.btn-danger {
+    color: #F0EEED;
+    background-color: #fc4a62;
+    border-color: #fc4a62;
+}
+
+.btn-info {
+    color: #392D2D;
+    background-color: #ffffff00;
+    border-color: #4a82fc;
+    border-radius: 0;
+    border-width: 0.1rem;
+    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+}
+
+.btn-info:hover,
+.btn-info:focus,
+.open>.dropdown-toggle.btn-info {
+    color: #F0EEED;
+    background-color: #4a82fc;
+    border-color: #4a82fc;
+}
+
+.btn-info:active:focus {
+    color: #F0EEED;
+    background-color: #4a68fc;
+    border-color: #4a68fc;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.dark-bg {
+    background-color: #392D2D;
+}
+
+.light-bg {
+    background-color: #F0EEED;
+}
+
+.muted-text {
+    color: #766262;
+    font-weight: bold;
+}
+
+.secondary-text {
+    color: #766262;
+    font-size: 16px;
+}
+
+.light-text {
+    color: #F0EEED;
+}
+
+
+/* a:focus-within {
+    color: #40D169;
+    outline-color: #ed6120;
+} */
+
+.banner-full {
+    height: 100vh;
+}
+
+.banner-half {
+    height: 50vh;
+}
+
+.br-line {
+    display: block;
+    width: 50%;
+    height: 0.2rem;
+    background-color: #FC814A;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+}
+
+.br-sm {
+    display: block;
+    height: 6vh;
+}
+
+.br-md {
+    display: block;
+    height: 12vh;
+}
+
+.br-lg {
+    display: block;
+    height: 20vh;
+}
+
+.container-box {
+    border-radius: 0;
+    border-color: #392D2D;
+    background-color: #fff;
+    border-width: 0.15rem;
+    border-style: solid;
+    padding: 5rem;
+}
+
+
+.registration-form .nav-link {
+    background-color: #F0EEED;
+    color: #392D2D;
+    border: none;
+    border-radius: 5rem;
+}
+
+.registration-form .nav-link:hover {
+    background-color: #FC814A;
+    color: #fff;
+    border-color: #FC814A;
+}
+
+.registration-form .nav-link.active {
+    background-color: #ed6120;
+    color: #fff;
+    border-color: #ed6120;
+}
+
+.caption {
+    font-size: 14px;
+    font-style: italic;
+}
+
+.thumbnail {
+    object-fit: cover;
+    width: 18rem;
+    height: 18rem;
+
+    border-radius: 1rem;
+}
+
+
+.thumbnail-container {
+    margin: 0;
+    padding: 1rem;
+    background-color: #FFF;
+    outline-style: solid;
+    outline-color: var(--bs-border-color-translucent);
+    outline-width: var(--bs-border-width);
+    border-radius: var(--bs-border-radius);
+
+    max-width: max-content;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tab-btn {
+    border-radius: 0;
+    text-align: start;
+    padding: 0.5rem 0.75rem;
+    background-color: #FFF;
+    border: 0;
+
+    transition: all ease-in 0.15s;
+}
+
+.tab-btn:hover {
+    background-color: #FC814A;
+    color: #F0EEED;
+}
+
+.tab-btn:active {
+    background-color: #FC814A !important;
+    border-color: #FC814A !important;
+    color: #F0EEED !important;
+}
+
+.active.tab-btn {
+    background-color: #ed6120;
+    color: #F0EEED;
+
+    border-color: #392D2D;
+}
+
+/* .profile-pic-preview {
+    width: 30rem;
+    height: 30rem;
+} */
+
+/* width */
+::-webkit-scrollbar {
+    width: 0.75rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.profile-pic {
+    object-fit: cover;
+    width: 18rem;
+    height: 18rem;
+
+    border-radius: 50%;
+}
+
+
+.profile-pic-container {
+    margin: 0;
+    padding: 1rem;
+    background-color: #FFF;
+    outline-style: solid;
+    outline-color: var(--bs-border-color-translucent);
+    outline-width: var(--bs-border-width);
+    border-radius: var(--bs-border-radius);
+
+    max-width: max-content;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* #ed6120 #FC814A #F0EEED #766262 #707070 #392D2D */

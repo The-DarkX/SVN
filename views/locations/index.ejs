@@ -1,0 +1,62 @@
+<% currentPage = 'Locations | SVN' %>
+
+<% layout('layouts/boilerplate')%>
+
+<link rel="stylesheet" href="/stylesheets/locations.css">
+
+<div class="container">
+    <div class="row">
+        <span class="br-md"></span>
+
+        <div class="mb-5">
+            <h1 class="dark-text text-center">All Locations</h1>
+        </div>
+        <div class="col" id="map-container">
+            <div id="map"></div>
+        </div>
+
+        <span class="br-md"></span>
+
+        <div>
+            <% for (let location of locations){%>
+            <div class="d-flex row">
+                <div class="col thumbnail-container justify-content-center ">
+                    <img class="img-fluid thumbnail" src="<%=location.images[0].url%>">
+                </div>
+
+                <div class="col-9">
+                    <div class="card">
+                        <div class="card-body px-4 mt-3 mb-5">
+                            <h3 class="card-title dark-text"><%= location.title %></h3>
+
+                            <% if(location.description.length < 500 ) {%>
+                            <p class="card-text dark-text"><%= location.description %></p>
+                            <%} else {%>
+                            <p class="card-text dark-text"><%= location.description.slice(0,500) %>...</p>
+                            <% } %>
+
+                            <h4 class="card-text">
+                                <small class="sub-text"><%= location.address %></small>
+                            </h4>
+                            <a class="btn btn-primary mt-3" href="/locations/<%= location._id %>">View
+                                <%= location.title %></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <span class="br-sm"></span>
+
+            <% }%>
+        </div>
+    </div>
+</div>
+
+<span class="br-md"></span>
+
+<script>
+    const mapToken = '<%-process.env.MAPBOX_TOKEN%>'
+    var locations = { features: <% - JSON.stringify(locations) %> }
+</script>
+
+
+<script src="/scripts/clusterMap.js"></script>

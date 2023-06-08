@@ -1,0 +1,25 @@
+.thumbnail {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* .thumbnail-container:hover .thumbnail {
+    transform: scale(1.1) rotate(3deg);
+    overflow: hidden;
+} */
+
+#map-container {
+    position: relative;
+    height: 70vh;
+    width: 70vw;
+    display: flex;
+    justify-content: center;
+}
+
+#map {
+    position: relative;
+    height: inherit;
+    width: inherit;
+}
