@@ -2,7 +2,7 @@
 
 <nav class="navbar sticky-top fixed-top navbar-expand-lg py-2" id="main-nav">
     <div class="container-fluid px-5 d-flex">
-        <a class="navbar-brand light-text fs-4" href="/">SVN</a>
+        <a class="navbar-brand fs-4" href="/">SVN</a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,22 +11,22 @@
 
         <div class="collapse navbar-collapse fs-6" id="navbarNavAltMarkup">
             <div class="navbar-nav col-3 justify-content-start">
-                <a class="nav-link light-text slide-underline" href="/">Home</a>
-                <a class="nav-link light-text slide-underline" href="/#about">About</a>
-                <a class="nav-link light-text slide-underline" href="/locations">Locations</a>
+                <a class="nav-link slide-underline" href="/">Home</a>
+                <a class="nav-link slide-underline" href="/#about">About</a>
+                <a class="nav-link slide-underline" href="/locations">Locations</a>
             </div>
 
             <%if(currentUser && currentUser.accountType === "Organization"){%>
             <div class="navbar-nav col-6 justify-content-center fs-6">
-                <a class="nav-link light-text slide-underline" href="/locations/new">Create Location</a>
-                <a class="nav-link light-text slide-underline" href="/under-construction">Applications</a>
+                <a class="nav-link slide-underline" href="/locations/new">Create Location</a>
+                <a class="nav-link slide-underline" href="/under-construction">Applications</a>
             </div>
             <%}%>
 
             <div class="navbar-nav ms-auto col-3 justify-content-end fs-6">
             <% if(!currentUser) {%>
-            <a class="nav-link light-text slide-underline" href="/login">Login</a>
-            <a class="nav-link light-text slide-underline" href="/register">Sign Up</a>
+            <a class="nav-link slide-underline" href="/login">Login</a>
+            <a class="nav-link slide-underline" href="/register">Sign Up</a>
 
             <% }else{ %>
 
@@ -95,17 +95,4 @@
     //     }
     // });
 
-</script>
-
-<script>
-    // When the user scrolls down 20px from the top of the document, slide down the navbar
-    window.onscroll = function () { scrollFunction() }
-
-    function scrollFunction() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            document.getElementById("navbar").style.top = "0"
-        } else {
-            document.getElementById("navbar").style.top = "-50px"
-        }
-    }
 </script>

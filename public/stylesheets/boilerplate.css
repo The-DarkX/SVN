@@ -35,13 +35,12 @@ body {
     overflow-x: hidden;
 }
 
-nav,
 footer {
-    background-color: #392D2D;
+    background-color: #1c1c1c;
 }
 
 nav svg {
-    color: #F0EEED;
+    color: #d0eef7;
 }
 
 .form-control {
@@ -59,8 +58,8 @@ nav svg {
 }
 
 ::selection {
-    color: white;
-    background: #FC814A;
+    color: #fff;
+    background: #ff661a;
 }
 
 
@@ -90,17 +89,17 @@ a.slide-underline:hover::before {
 a.light-text,
 a.light-text:hover,
 a.light-text:active {
-    color: #F0EEED !important;
+    color: #d0eef7;
 }
 
 .dark-text {
-    color: #392D2D;
+    color: #1c1c1c;
 }
 
 a.dark-text,
 a.dark-text:hover,
 a.dark-text:active {
-    color: #392D2D !important;
+    color: #1c1c1c;
 }
 
 .sub-text {
@@ -110,24 +109,25 @@ a.dark-text:active {
 .btn-primary {
     color: #392D2D;
     background-color: #ffffff00;
-    border-color: #FC814A;
-    border-radius: 0;
-    border-width: 0.1rem;
+    border-color: #FFBD00;
+    border-radius: 20px;
+    border-width: 0.15rem;
     padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+    z-index: -1;
 }
 
 .btn-primary:hover,
 .btn-primary:focus,
 .open>.dropdown-toggle.btn-primary {
-    color: #F0EEED;
-    background-color: #FC814A;
-    border-color: #FC814A;
+    color: #d0eef7;
+    background-color: #FF5400;
+    border-color: #FF5400;
 }
 
 .btn-primary:active:focus {
-    color: #F0EEED;
-    background-color: #ed6120;
-    border-color: #ed6120;
+    color: #d0eef7;
+    background-color: #FF5400;
+    border-color: #FF5400;
 }
 
 
@@ -143,7 +143,7 @@ a.dark-text:active {
 .btn-danger:hover,
 .btn-danger:focus,
 .open>.dropdown-toggle.btn-danger {
-    color: #F0EEED;
+    color: #d0eef7;
     background-color: #fc4a62;
     border-color: #fc4a62;
 }
@@ -160,13 +160,13 @@ a.dark-text:active {
 .btn-info:hover,
 .btn-info:focus,
 .open>.dropdown-toggle.btn-info {
-    color: #F0EEED;
+    color: #d0eef7;
     background-color: #4a82fc;
     border-color: #4a82fc;
 }
 
 .btn-info:active:focus {
-    color: #F0EEED;
+    color: #d0eef7;
     background-color: #4a68fc;
     border-color: #4a68fc;
 }
@@ -209,7 +209,7 @@ a.dark-text:active {
 }
 
 .light-text {
-    color: #F0EEED;
+    color: #d0eef7;
 }
 
 
@@ -390,3 +390,16 @@ a.dark-text:active {
 
 
 /* #ed6120 #FC814A #F0EEED #766262 #707070 #392D2D */
+
+
+
+
+
+
+
+
+
+
+
+/* #F72585 #B5179E #7209B7 #560BAD #480CA8 #3A0CA3 #3F37C9 #4361EE #4895EF #4CC9F0 */
+/* 390099 9E0059 FF0054 FF5400 FFBD00 */

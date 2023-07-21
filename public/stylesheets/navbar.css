@@ -1,8 +1,45 @@
 .navbar {
-    border: 0;
-    border-bottom: 0.3rem;
-    border-style: solid;
-    border-color: #FC814A;
+    position: fixed;
+    box-shadow: 0px 5px 5px 1px rgba(10, 10, 54, 0.2);
+    background-color: #1c1c1c;
+    transition: all 0.5s;
+}
+
+.navbar-nav>a,
+.navbar .container-fluid>a {
+    color: #d0eef7;
+}
+
+/* .navbar.navbar-visible {
+    background-color: #F0EEED;
+    transition: all 0.5s;
+} */
+
+/* .navbar-visible .container-fluid>a,
+.navbar-visible .container-fluid .collapse>div>a {
+    color: #1c1c1c;
+} */
+
+.navbar-hidden {
+    background-color: #570bad00;
+    box-shadow: none;
+
+}
+
+.navbar-hidden .container-fluid>a,
+.navbar-hidden .container-fluid .collapse>div>a {
+    color: #d0eef7;
+}
+
+
+
+.navbar-nav .nav-link {
+    color: #d0eef7;
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link:active {
+    color: #d0eef7;
 }
 
 .user-pic {
@@ -68,7 +105,7 @@
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: #392D2D;
+    color: #1c1c1c;
     margin: 0.5rem 0;
 }
 
@@ -76,14 +113,14 @@
     font-size: 15px;
     width: 100%;
     margin: auto;
+    transition: font-weight 0.1s;
 }
 
 .sub-menu-link img {
     width: 2.5rem;
     background: #F0EEED;
-    /* border-radius: 50%; */
     padding: 0.75rem;
-    margin-right: 1rem;
+    margin-right: 0.75rem;
     overflow: visible;
 
     transition: all 0.5s;
@@ -103,9 +140,10 @@
 }
 
 .sub-menu-link:hover img {
-    background-color: #FC814A;
+    background-color: #ff661a;
     border-radius: 50%;
     overflow: visible;
 }
+
 
 /* #ed6120 #FC814A #F0EEED #766262 #707070 #392D2D */

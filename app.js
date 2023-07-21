@@ -143,7 +143,7 @@ app.use('/locations/:id/reviews', locationReviewRoutes)
 
 
 app.get('/', (req, res) => {
-    res.render('main/home')
+    res.render('main/home_v2')
 })
 
 app.get('/about', (req, res) => {
