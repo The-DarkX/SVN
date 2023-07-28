@@ -76,7 +76,7 @@ a.slide-underline::before {
     height: 0.15rem;
     bottom: 0;
     left: 0;
-    background-color: #FC814A;
+    background-color: #ff661a;
     transform: scaleX(0);
     transform-origin: top left;
     transition: transform 0.3s ease;
@@ -103,7 +103,7 @@ a.dark-text:active {
 }
 
 .sub-text {
-    color: #766262;
+    color: #4361EE;
 }
 
 .btn-primary {
@@ -393,11 +393,58 @@ a.dark-text:active {
 
 
 
+#alert_container {
+    position: fixed;
+    background-color: #363636;
+    color: #d0eef7;
 
+    height: 100px;
+    width: 500px;
+    padding: 15px 60px 15px 30px;
+    border-radius: 5px;
+    outline-style: solid;
+    outline-width: 2px;
+    outline-color: #FF5400;
+    border: unset;
 
+    box-shadow: inset 0 0 10px #FF5400;
 
+    bottom: 3vh;
+    left: 3vw;
 
+    animation: 0.5s ease-out 0s 1 slideInLeft;
 
+    z-index: 10;
+}
+
+#alert_container.success_alert {
+    box-shadow: inset 0 0 10px #00f800;
+    outline-color: #00f800;
+}
+
+#alert_container.error_alert {
+    box-shadow: inset 0 0 10px #ff0000;
+    outline-color: #ff0000;
+}
+
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(-150%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.scrollable {
+    overflow-y: auto;
+    max-height: 100px;
+}
+
+.scrollable>p {
+    padding-right: 20px;
+}
 
 
 
