@@ -103,7 +103,7 @@ a.dark-text:active {
 }
 
 .sub-text {
-    color: #4361EE;
+    color: #4895EF;
 }
 
 .btn-primary {
@@ -134,7 +134,7 @@ a.dark-text:active {
 .btn-danger {
     color: #392D2D;
     background-color: #ffffff00;
-    border-color: #fc4a62;
+    border-color: #FF0054;
     border-radius: 0;
     border-width: 0.1rem;
     padding: 0.5rem 1.5rem 0.5rem 1.5rem;
@@ -144,8 +144,8 @@ a.dark-text:active {
 .btn-danger:focus,
 .open>.dropdown-toggle.btn-danger {
     color: #d0eef7;
-    background-color: #fc4a62;
-    border-color: #fc4a62;
+    background-color: #FF0054;
+    border-color: #FF0054;
 }
 
 .btn-info {
@@ -418,13 +418,13 @@ a.dark-text:active {
 }
 
 #alert_container.success_alert {
-    box-shadow: inset 0 0 10px #00f800;
-    outline-color: #00f800;
+    box-shadow: inset 0 0 10px #17d017;
+    outline-color: #17d017;
 }
 
 #alert_container.error_alert {
-    box-shadow: inset 0 0 10px #ff0000;
-    outline-color: #ff0000;
+    box-shadow: inset 0 0 10px #ff0026;
+    outline-color: #ff0026;
 }
 
 @keyframes slideInLeft {
@@ -447,6 +447,37 @@ a.dark-text:active {
 }
 
 
+.btn-modal-danger {
+    border-radius: 0;
+    background-color: transparent;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #FF0054;
+    transition: all ease-in 0.1s;
+    padding: 7px 50px;
+
+}
+
+.btn-modal-danger:hover {
+    background-color: #FF0054;
+    color: #d0eef7;
+}
+
+
+.btn-modal-dismiss {
+    border-radius: 0;
+    background-color: transparent;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #4895EF;
+    transition: all ease-in 0.1s;
+    padding: 7px 50px;
+}
+
+.btn-modal-dismiss:hover {
+    background-color: #4895EF;
+    color: #d0eef7;
+}
 
 /* #F72585 #B5179E #7209B7 #560BAD #480CA8 #3A0CA3 #3F37C9 #4361EE #4895EF #4CC9F0 */
 /* 390099 9E0059 FF0054 FF5400 FFBD00 */
